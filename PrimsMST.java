@@ -18,6 +18,13 @@ public class PrimsMST {
     private long minCostSum;
     private Edge[] mstEdges;
 
+
+    //initialize with nodes list
+    public PrimsMST(List<Node> nodes) {
+        solved = false;
+        mstExists = false;
+        this.nodes = nodes;
+    }
     // Returns the edges used in finding the minimum spanning tree,
     // or returns null if no MST exists
     public Edge[] getMst(){
@@ -51,14 +58,15 @@ public class PrimsMST {
     }
 
     // Computes the minimum spanning tree and minimum spanning tree cost.
-    private void solve() {
+    public void solve() {
         if(solved) return;
         solved = true;
 
         n = nodes.size();
         int m = n - 1, edgeCount = 0;
         visited = new boolean[n];
-        mstEdges = new Edge[m];
+        //m + 2 to keep space for 2 extra edges from one tree
+        mstEdges = new Edge[m + 2];
 
         // The degree of the d-ary heap supporting the IPQ can greatly impact performance, especially
         // on dense graphs. The base 2 logarithm of n is a decent value based on my quick experiments
@@ -83,40 +91,17 @@ public class PrimsMST {
         mstExists = (edgeCount == m);
     }
 
-    private void printMST(Edge[] edges) {
+    public void printMST(Edge[] edges) {
         for(int i = 0; i < edges.length; i++) {
             System.out.println(edges[i].from.id + ", " + " to " + edges[i].to.id +  " Distance: " +edges[i].distance);
         }
     }
 
     public static void main(String[] args) throws IOException {
-        PrimsMST mstSolver = new PrimsMST();
-        mstSolver.nodes = CSVLoader.loadNodesFromCleanData("data/crimeSample.csv");
-        System.out.println("MST for nodes: " + mstSolver.nodes.size());
-      //  mstSolver.printMST(mstSolver.getMst());
-        System.out.println(mstSolver.getMstCost());
-    }
-}
-
-class Edge implements Comparable<Edge>{
-    public Node from;
-    public Node to;
-    public double distance;
-
-    public Edge(Node n1, Node n2) {
-        this.from = n1;
-        this.to = n2;
-        this.distance = HaversineDistance.haversine(n1, n2);
-    }
-
-    @Override
-    public int compareTo(Edge e) {
-        if(this.distance < e.distance) {
-            return -1;
-        } else if(this.distance > e.distance) {
-            return 1;
-        } else {
-            return 0;
-        }
+//        PrimsMST mstSolver = new PrimsMST();
+//        mstSolver.nodes = CSVLoader.loadNodesFromCleanData("data/crimeSample.csv");
+//        System.out.println("MST for nodes: " + mstSolver.nodes.size());
+//      //  mstSolver.printMST(mstSolver.getMst());
+//        System.out.println("Total MST Cost : " + mstSolver.getMstCost());
     }
 }

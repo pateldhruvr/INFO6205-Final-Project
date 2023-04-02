@@ -8,6 +8,8 @@ import java.util.Set;
 
 public class CSVLoader {
     static boolean removeDuplicates = true;
+
+    // Loads nodes from Kaggle CSV ~ 84k rows.
     public static List<Node> loadNodesFromCSV(String filepath) throws IOException {
         List<Node> nodes = new ArrayList<>();
         Set<String> uniqueLocations = new HashSet<>();
@@ -29,6 +31,8 @@ public class CSVLoader {
         reader.close();
         return nodes;
     }
+
+    // Loads nodes from Prof's sample CSV ~150 rows .
     public static List<Node> loadNodesFromCleanData(String filepath) throws IOException {
           List<Node> nodes = new ArrayList<>();
           BufferedReader reader = new BufferedReader(new FileReader(filepath));
@@ -43,7 +47,6 @@ public class CSVLoader {
             reader.close();
             return nodes;
     }
-
     public static void printNodes(List<Node> nodes) {
         for(int i = 0; i < nodes.size(); i++) {
             //print the distance between all the nodes
