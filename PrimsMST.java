@@ -33,7 +33,6 @@ public class PrimsMST {
     private void relaxEdgesAtNode(int currentNodeIndex) {
         visited[currentNodeIndex] = true;
 
-        //@TODO no need to loop through nodes already visited, remove them beforehand
         for(int i = 0; i < nodes.size(); i++) {
             int destNodeIndex = i;
 
@@ -86,15 +85,16 @@ public class PrimsMST {
 
     private void printMST(Edge[] edges) {
         for(int i = 0; i < edges.length; i++) {
-            System.out.println(edges[i].from.id + " " + edges[i].to.id + " " + edges[i].distance);
+            System.out.println(edges[i].from.id + ", " + " to " + edges[i].to.id +  " Distance: " +edges[i].distance);
         }
     }
 
     public static void main(String[] args) throws IOException {
         PrimsMST mstSolver = new PrimsMST();
-        mstSolver.nodes = CSVLoader.loadNodesFromCSV("data/2023-01-metropolitan-street.csv");
+        mstSolver.nodes = CSVLoader.loadNodesFromCleanData("data/crimeSample.csv");
         System.out.println("MST for nodes: " + mstSolver.nodes.size());
-       mstSolver.printMST(mstSolver.getMst());
+      //  mstSolver.printMST(mstSolver.getMst());
+        System.out.println(mstSolver.getMstCost());
     }
 }
 
