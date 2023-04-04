@@ -51,17 +51,19 @@ public class App extends Application {
 
 			Parent root = FXMLLoader.load(url);
 			
-//			final double height = 720;
-//			final double width = 720;
-//			Scene scene = new Scene(root, height, width);
+			/*
+			final double height = 720;
+			final double width = 720;
+			Scene scene = new Scene(root, height, width);
+			*/
 			
 			Scene scene = new Scene(root);
-			
 			scene.getStylesheets().add("stylesheets/application.css");
 			
 			stage.setTitle(Constant.APP_NAME);
-			stage.setResizable(false);
 			stage.setScene(scene);
+			stage.setMaximized(true);
+			stage.setResizable(false);
 			stage.show();
 			
 			errorHandlingService = ErrorHandlingServiceImpl.getInstance();

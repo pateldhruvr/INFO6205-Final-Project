@@ -9,7 +9,7 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		<log4j.configurationFile>src/main/resources/log4j2.xml</log4j.configurationFile>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.openjfx</groupId>
@@ -36,10 +36,10 @@
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
-		
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -48,7 +48,7 @@
 					<release>11</release>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.openjfx</groupId>
 				<artifactId>javafx-maven-plugin</artifactId>
@@ -58,10 +58,11 @@
 					<options>
 						<!-- Needed for external log configuration while using mvn javafx:run-->
 						<option>-Dlog4j.configurationFile=${log4j.configurationFile}</option>
+						<option>--add-exports=javafx.graphics/com.sun.javafx.tk=ALL-UNNAMED</option>
 					</options>
 				</configuration>
 			</plugin>
-			
+
 			<!-- For building JAR File -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

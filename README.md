@@ -32,3 +32,8 @@
 
 * Creating JavaFX Project using maven
 	*  https://openjfx.io/openjfx-docs/#maven
+
+* Mercator Projection
+	* It is a commonly used formula for converting latitude and longitude coordinates to x and y positions on a 2D map or screen.
+	* https://mathworld.wolfram.com/MercatorProjection.html
+	* https://stackoverflow.com/questions/14329691/convert-latitude-longitude-point-to-a-pixels-x-y-on-mercator-projection
