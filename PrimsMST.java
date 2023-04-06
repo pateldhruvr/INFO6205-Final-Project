@@ -66,7 +66,8 @@ public class PrimsMST {
         int m = n - 1, edgeCount = 0;
         visited = new boolean[n];
         //m + 2 to keep space for 2 extra edges from one tree
-        mstEdges = new Edge[m + 2];
+        //mstEdges = new Edge[m + 2];
+        mstEdges = new Edge[m];
 
         // The degree of the d-ary heap supporting the IPQ can greatly impact performance, especially
         // on dense graphs. The base 2 logarithm of n is a decent value based on my quick experiments
@@ -93,15 +94,7 @@ public class PrimsMST {
 
     public void printMST(Edge[] edges) {
         for(int i = 0; i < edges.length; i++) {
-            System.out.println(edges[i].from.id + ", " + " to " + edges[i].to.id +  " Distance: " +edges[i].distance);
+            System.out.println(edges[i].from.id + ", " + " to " + edges[i].to.id +  " Distance: " + edges[i].distance);
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-//        PrimsMST mstSolver = new PrimsMST();
-//        mstSolver.nodes = CSVLoader.loadNodesFromCleanData("data/crimeSample.csv");
-//        System.out.println("MST for nodes: " + mstSolver.nodes.size());
-//      //  mstSolver.printMST(mstSolver.getMst());
-//        System.out.println("Total MST Cost : " + mstSolver.getMstCost());
     }
 }

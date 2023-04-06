@@ -19,7 +19,7 @@ public class OneTree {
     public void buildOneTree(Edge[] mst, Node excludedNode, long mstCost, List<Node> nodes) {
         this.oneTreeCost = mstCost;
         for(int i = 0; i < nodes.size(); i++) {
-            if(!excludedNode.id.equals(nodes.get(i))) {
+            if(!excludedNode.id.equals(nodes.get(i).id)) {
                 ipq.insert(i, new Edge(excludedNode, nodes.get(i)));
             }
         }
