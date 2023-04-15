@@ -176,6 +176,8 @@ public class TSPSolverServiceImpl implements TSPSolverService {
 			threeOpt.improve();
 			List<Point> improvedTSPList = threeOpt.getImprovedTour();
 
+			CsvWriter.writePoints(improvedTSPList);
+
 			//convert point to list of edges
 			List<Edge> improvedTSPTour = new ArrayList<>();
 			for (int i = 0; i < improvedTSPList.size() - 1; i++) {
